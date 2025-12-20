@@ -123,7 +123,7 @@ function initialize() {
 	sceneGroup = new THREE.Group();
 	// a 1x1x1 cube model with scale factor 1.25 fills up the physical cube
 	sceneGroup.scale.set(1.25/2, 1.25/2, 1.25/2);
-	// let loader = new THREE.TextureLoader();
+	let loader = new THREE.TextureLoader();
 	
 	// a simple cube
 	let materialArray = [
@@ -172,4 +172,5 @@ function animate() {
 
 </body>
 </html>
+
 
