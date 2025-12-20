@@ -137,9 +137,9 @@ function initialize() {
 	let mesh = new THREE.Mesh( new THREE.CubeGeometry(2,2,2), materialArray );
 	sceneGroup.add( mesh );
 	
-	// let pointLight = new THREE.PointLight( 0xffffff, 1, 50 );
-	// pointLight.position.set(0.5,3,2);
-	// scene.add( pointLight );
+	let pointLight = new THREE.PointLight( 0xffffff, 1, 50 );
+	pointLight.position.set(0.5,3,2);
+	scene.add( pointLight );
 }
 	
 function update() {
@@ -172,3 +172,4 @@ function animate() {
 
 </body>
 </html>
+
