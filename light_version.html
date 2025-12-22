@@ -3,8 +3,8 @@
 <head>
 <meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1,maximum-scale=1">
 <title>AR Multi-Marker Cube</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r147/three.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/three@0.147.0/examples/js/loaders/GLTFLoader.js"></script>
+	<script src="https://unpkg.com/three@0.147.0/build/three.min.js"></script>
+	<script src="https://unpkg.com/three@0.147.0/examples/js/loaders/GLTFLoader.js"></script>
 	<script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.0/three.js/build/ar-threex.js"></script>
 </head>
 
@@ -120,8 +120,7 @@ function initialize() {
 	    
 	    // AR.js Tip: GLB models usually need light!
 	    // If the model looks black, ensure you have a light in your scene:
-	    var light = new THREE.DirectionalLight(0xffffff, 1);
-	    light.position.set(0, 1, 1);
+		var light = new THREE.AmbientLight(0xffffff, 1.0);
 	    scene.add(light);
 	});
 }
