@@ -122,7 +122,8 @@ function initialize() {
 		new THREE.MeshBasicMaterial( { map: loader.load("images/zpos.png") } ),
 		new THREE.MeshBasicMaterial( { map: loader.load("images/zneg.png") } ),
 	];
-	let mesh = new THREE.Mesh( new THREE.CubeGeometry(2,2,2), materialArray );
+	// let mesh = new THREE.Mesh( new THREE.CubeGeometry(2,2,2), materialArray ); // deprecated
+	let mesh = new THREE.Mesh( new THREE.BoxGeometry(2,2,2), materialArray );
 	sceneGroup.add( mesh );
 }
 	
