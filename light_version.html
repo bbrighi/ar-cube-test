@@ -6,10 +6,10 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
 <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.0/three.js/build/ar-threex.js"></script>
 </head>
-<body style='margin:0;overflow:hidden'>
 
+<body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 <!-- 
-  Example created by Lee Stemkoski: https://github.com/stemkoski
+  Example created from Lee Stemkoski: https://github.com/stemkoski
   Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/
 -->
 
@@ -111,10 +111,19 @@ function initialize() {
 	sceneGroup = new THREE.Group();
 	// a 1x1x1 cube model with scale factor 1.25 fills up the physical cube
 	sceneGroup.scale.set(1.25/2, 1.25/2, 1.25/2);
-	let loader = new THREE.GLTFLoader();
-  loader.load('models/LittlestTokyo.glb', function(gltf) {
-      markerGroup.add(gltf.scene);  // Add to markerGroup, not markerRoot!
-  });
+	let loader = new THREE.TextureLoader();
+	
+	// a simple cube
+	let materialArray = [
+		new THREE.MeshBasicMaterial( { map: loader.load("images/xpos.png") } ),
+		new THREE.MeshBasicMaterial( { map: loader.load("images/xneg.png") } ),
+		new THREE.MeshBasicMaterial( { map: loader.load("images/ypos.png") } ),
+		new THREE.MeshBasicMaterial( { map: loader.load("images/yneg.png") } ),
+		new THREE.MeshBasicMaterial( { map: loader.load("images/zpos.png") } ),
+		new THREE.MeshBasicMaterial( { map: loader.load("images/zneg.png") } ),
+	];
+	let mesh = new THREE.Mesh( new THREE.CubeGeometry(2,2,2), materialArray );
+	sceneGroup.add( mesh );
 }
 	
 function update() {
