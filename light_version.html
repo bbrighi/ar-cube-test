@@ -4,7 +4,7 @@
 <meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1,maximum-scale=1">
 <title>AR Multi-Marker Cube</title>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
-	<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.0/three.js/build/ar-threex.js"></script>
 </head>
 
@@ -113,7 +113,7 @@ function initialize() {
 	// a 1x1x1 cube model with scale factor 1.25 fills up the physical cube
 	sceneGroup.scale.set(1.25/2, 1.25/2, 1.25/2);
 	const loader = new THREE.GLTFLoader();
-	loader.load('models/littlestTokyo.glb', function ( gltf ) {
+	loader.load('models/LittlestTokyo.glb', function ( gltf ) {
 	    const model = gltf.scene;
 	    sceneGroup.add( model );
 	    
