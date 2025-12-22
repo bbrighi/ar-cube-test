@@ -4,6 +4,7 @@
 <meta name="viewport" content="width=device-width,user-scalable=no,minimum-scale=1,maximum-scale=1">
 <title>AR Multi-Marker Cube</title>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
 <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.0/three.js/build/ar-threex.js"></script>
 </head>
 
@@ -111,20 +112,17 @@ function initialize() {
 	sceneGroup = new THREE.Group();
 	// a 1x1x1 cube model with scale factor 1.25 fills up the physical cube
 	sceneGroup.scale.set(1.25/2, 1.25/2, 1.25/2);
-	let loader = new THREE.TextureLoader();
-	
-	// a simple cube
-	let materialArray = [
-		new THREE.MeshBasicMaterial( { map: loader.load("images/xpos.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/xneg.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/ypos.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/yneg.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/zpos.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/zneg.png") } ),
-	];
-	// let mesh = new THREE.Mesh( new THREE.CubeGeometry(2,2,2), materialArray ); // deprecated
-	let mesh = new THREE.Mesh( new THREE.BoxGeometry(2,2,2), materialArray );
-	sceneGroup.add( mesh );
+	const loader = new THREE.GLTFLoader();
+	loader.load('models/littlestTokyo.glb', function ( gltf ) {
+	    const model = gltf.scene;
+	    sceneGroup.add( model );
+	    
+	    // AR.js Tip: GLB models usually need light!
+	    // If the model looks black, ensure you have a light in your scene:
+	    var light = new THREE.DirectionalLight(0xffffff, 1);
+	    light.position.set(0, 1, 1);
+	    scene.add(light);
+	});
 }
 	
 function update() {
