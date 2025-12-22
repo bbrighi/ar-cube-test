@@ -100,7 +100,7 @@ function initialize() {
 	
 		let markerGroup = new THREE.Group();
 		markerGroupArray.push( markerGroup );
-		markerGroup.position.y = -1.25/2;
+		markerGroup.position.y = 0; // -1.25/2;
 		markerGroup.rotation.setFromVector3( rotationArray[i] );
 		markerRoot.add( markerGroup );
 	}
