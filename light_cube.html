@@ -109,24 +109,8 @@ function initialize() {
 	// setup scene
 	////////////////////////////////////////////////////////////
 	sceneGroup = new THREE.Group();
-	// a 1x1x1 cube model with scale factor 1.25 fills up the physical cube
-	sceneGroup.scale.set(1.25/2, 1.25/2, 1.25/2);
-	let loader = new THREE.TextureLoader();
-	
-	// a simple cube
-	let materialArray = [
-		new THREE.MeshBasicMaterial( { map: loader.load("images/xpos.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/xneg.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/ypos.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/yneg.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/zpos.png") } ),
-		new THREE.MeshBasicMaterial( { map: loader.load("images/zneg.png") } ),
-	];
 	// let mesh = new THREE.Mesh( new THREE.CubeGeometry(2,2,2), materialArray ); // deprecated
-	let mesh = new THREE.Mesh( new THREE.BoxGeometry(1,1,1), materialArray );
-	mesh.position.y = 0;
-	mesh.position.x = 0;
-	mesh.position.z = 0;
+	let mesh = new THREE.Mesh( new THREE.BoxGeometry(1,1,1));
 	sceneGroup.add( mesh );
 }
 	
